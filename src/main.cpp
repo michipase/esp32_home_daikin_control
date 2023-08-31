@@ -13,16 +13,23 @@ IRDaikinESP ac(kIrLed);
 int temp = 21;
 int fan = 2;
 int mode = 3;
+bool on = false;
 
 // Create an instance of the web server
 AsyncWebServer server(80);
 
-void execCommand(int temp, int fan, int mode, String poweroff) {
+void execCommand(int t, int f, int m, String p) {
 
-  ac.setTemp(temp);
-  ac.setFan(fan);
-  ac.setMode(mode == 1 ? kDaikinCool : mode == 2 ? kDaikinHeat : kDaikinDry);
-  if(poweroff == "SAVE") ac.on();
+  temp = t;
+  fan = f;
+  mode = m;
+  on = p != "OFF";
+
+
+  ac.setTemp(t);
+  ac.setFan(f);
+  ac.setMode(m == 1 ? kDaikinCool : m == 2 ? kDaikinHeat : kDaikinDry);
+  if(p == "SAVE") ac.on();
   else ac.off();
 
   Serial.println(ac.toString());
