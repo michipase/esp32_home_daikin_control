@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC Camere</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        input {
+            background-color: rgba(0 0 0/ 0);
+            border: solid 1px #333;
+            width: 5em;
+        }
+
+        table {
+            border-spacing: 5px 5em;
+        }
+    </style>
+</head>
+
+<body class="
+    bg-[#1a1a1a] text-[#bbb]
+    w-full h-full
+    overflow-hidden
+    flex justify-center items-center
+    ">
+    <form>
+
+        <div class="
+            w-96 h-fit
+            border border-2 border-[#333] rounded-xl
+            p-4
+            flex items-center flex-col gap-4
+            ">
+            <h1 class="text-xl">Ac camere</h1>
+            <table class="border-separate border border-spacing-4">
+                <tr>
+                    <td>
+                        <label name="temperature">Temp</label>
+                    </td>
+                    <td>
+                        <input type="number" min="18" max="32" name="temperature" value="{{temp}}"> °C
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label name="fan">Fan speed</label>
+                    </td>
+                    <td>
+                        <input type="number" min="1" max="4" name="fan" value="{{fan}}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label name="mode">Mode</label>
+                    </td>
+                    <td>
+                        <select name="mode" id="mode" value="{{mode}}">
+                            <option value="1">cool</option>
+                            <option value="2">heat</option>
+                            <option value="3">dry</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="flex gap-4">
+                <input type="submit" name="poweroff" class="p-4 rounded-md bg-red-600 bg-opacity-40" value="OFF"
+                    formaction="/off">
+                <input type="submit" name="poweroff" class="p-4 rounded-md bg-green-600 bg-opacity-40" value="SAVE"
+                    formaction="/save">
+            </div>
+
+        </div>
+    </form>
+</body>
+
+</html>
